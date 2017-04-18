@@ -1,0 +1,11 @@
+name: ${project.artifactId}
+author: LucaBiemelt
+version: ${project.version}
+main: ${project.groupId}.${project.artifactId}.Main
+
+commands:
+	jump:
+		description: Super Jump
+		aliases:[jp,j]
+		usage: /<command> [<player>]
+		
