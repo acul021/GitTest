@@ -19,34 +19,32 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Main extends JavaPlugin implements Listener{
 	
 	private ArrayList<Player> players=new ArrayList<Player>();
-
 	@Override
 	public void onEnable() {
 		this.getCommand("jump").setExecutor(this);
 		Bukkit.getPluginManager().registerEvents(this, this);
-		Message.sendMessage(Bukkit.getConsoleSender(), "§aPlugin aktiviert!");
+		Message.sendMessage(Bukkit.getConsoleSender(), "Â§aPlugin aktiviert!");
 	}
 	
 	@Override
 	public void onDisable() {
-		Message.sendMessage(Bukkit.getConsoleSender(), "§cPlugin deaktiviert!");
+		Message.sendMessage(Bukkit.getConsoleSender(), "Â§cPlugin deaktiviert!");
 	}
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if(!(sender instanceof Player)){
-			Message.sendMessage(sender, "§4Only for Players!");
+			Message.sendMessage(sender, "Â§4Only for Players!");
 			return true;
 		}
 		Player p=(Player) sender;
 		if(Permission.hasPermission(p, "test.jump")){
-			Message.sendMessage(p, "§cActung!");
-			Message.sendMessage(p, "§aDu machst jetzt einen §6SuperJump§a!");
+			Message.sendMessage(p, "Â§cActung!");
+			Message.sendMessage(p, "Â§aDu machst jetzt einen Â§6SuperJumpÂ§a!");
 			
 			p.setVelocity(p.getLocation().getDirection().multiply(1.5D).setY(1D));
 			
-			//Wenn der Spieler den CMD ausführt wird er in die Liste hinzugefügt damit er kein Fallschaden bekommt
-			Bukkit.broadcastMessage("§aHizugefügt");
+			//Wenn der Spieler den CMD ausfÃ¼hrt wird er in die Liste hinzugefÃ¼gt damit er kein Fallschaden
 			players.add(p);
 		}
 		return true;
